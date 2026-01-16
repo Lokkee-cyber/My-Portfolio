@@ -44,22 +44,13 @@ const Projects = () => {
   // For demo purposes, if you want to see how it looks without GitHub API
   const demoProjects = [
     {
-      name: "E-commerce Platform",
+      name: "Training Website",
       description: "A full-stack e-commerce platform built with React, Node.js, and MongoDB",
-      topics: ["react", "nodejs", "mongodb", "express"],
+      topics: ["react", "nodejs", "mongodb"],
       html_url: "#",
       homepage: "#",
       stargazers_count: 45,
       language: "JavaScript"
-    },
-    {
-      name: "Task Management App",
-      description: "A collaborative task management application with real-time updates",
-      topics: ["react", "firebase", "material-ui"],
-      html_url: "#",
-      homepage: "#",
-      stargazers_count: 32,
-      language: "TypeScript"
     },
     // Add more demo projects as needed
   ];

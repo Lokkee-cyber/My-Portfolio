@@ -75,19 +75,19 @@ const Contact = () => {
     {
       icon: <Email color="primary" />,
       title: 'Email',
-      value: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      value: 'ismailawaliyu@gmail.com',
+      link: 'mailto:ismailawaliyu@gmail.com'
     },
     {
       icon: <Phone color="primary" />,
       title: 'Phone',
-      value: '+1 234 567 890',
-      link: 'tel:+1234567890'
+      value: '+234902988655',
+      link: 'tel:+234902988655'
     },
     {
       icon: <LocationOn color="primary" />,
-      title: 'Location',
-      value: 'City, Country'
+      title: 'Ilorin',
+      value: 'Ilorin, Nigeria'
     }
   ];
 
@@ -95,7 +95,7 @@ const Contact = () => {
     {
       icon: <GitHub />,
       label: 'GitHub',
-      url: 'https://github.com/yourusername'
+      url: 'https://github.com/Lokkee-cyber'
     },
     {
       icon: <LinkedIn />,

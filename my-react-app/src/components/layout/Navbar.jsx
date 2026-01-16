@@ -48,24 +48,16 @@ const Navbar = () => {
       position="sticky"
       elevation={3}
       sx={{
-        background: 'linear-gradient(90deg, #1976d2 0%, #ffffff 100%)',
-        color: '#fff',
-        borderRadius: 3,
+        color: '#ebf0f4ff',
+        bgcolor: '#1976d2',
         boxShadow: '0 4px 24px 0 rgba(25, 118, 210, 0.08)',
         px: 0,
         py: 0.5,
       }}
     >
       <Toolbar sx={{ px: { xs: 2, sm: 4 }, minHeight: 64 }}>
-        {/* Brand with icon */}
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <Box sx={{ mr: 1, display: 'flex', alignItems: 'center' }}>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="16" cy="16" r="16" fill="#fff" />
-              <path d="M10 22L22 10" stroke="#1976d2" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M10 10L22 22" stroke="#1976d2" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
-          </Box>
+          
           <Typography
             variant="h6"
             component={Link}
@@ -77,7 +69,7 @@ const Navbar = () => {
               fontSize: { xs: '1.2rem', sm: '1.5rem' },
               letterSpacing: 1,
               '&:hover': {
-                color: '#f3f6f9ff',
+                color: '#e6e8eaff',
               },
               transition: 'color 0.2s',
             }}
@@ -98,7 +90,7 @@ const Navbar = () => {
               <MenuIcon />
             </IconButton>
             <Drawer
-              anchor="right"
+              anchor="left"
               open={mobileOpen}
               onClose={handleDrawerToggle}
             >
@@ -113,7 +105,7 @@ const Navbar = () => {
                   component={Link}
                   to={item.path}
                   sx={{
-                    color: location.pathname === item.path ? '#1976d2' : '#222',
+                    color: location.pathname === item.path ? '#06021a' : '#fcfcfd',
                     fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                     background: 'none',
                     px: 2,
@@ -124,7 +116,7 @@ const Navbar = () => {
                     overflow: 'hidden',
                     transition: 'color 0.2s',
                     '&:hover': {
-                      color: '#1976d2',
+                      color: '#040220',
                       background: 'rgba(25, 118, 210, 0.08)',
                     },
                     '&:after': {
@@ -136,7 +128,7 @@ const Navbar = () => {
                       bottom: 4,
                       height: 2,
                       borderRadius: 1,
-                      background: location.pathname === item.path ? '#1976d2' : 'transparent',
+                      background: location.pathname === item.path ? '#05042b' : 'transparent',
                       transition: 'background 0.3s',
                     },
                   }}

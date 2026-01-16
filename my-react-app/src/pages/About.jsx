@@ -23,11 +23,11 @@ const About = () => {
               About Me
             </Typography>
             <Typography variant="body1" paragraph>
-              Hello! I'm [Your Name], a passionate software engineer with a strong foundation in full-stack development. 
+              Hello! I'm Ismaila Waliyu, a passionate software engineer with a strong foundation in full-stack development. 
               I specialize in creating efficient, scalable, and user-friendly applications that solve real-world problems.
             </Typography>
             <Typography variant="body1" paragraph>
-              With [X] years of experience in the software industry, I've worked on various projects ranging from web applications 
+              With 3 years of experience in the software industry, I've worked on various projects ranging from web applications 
               to enterprise solutions. I'm constantly learning and adapting to new technologies while maintaining a strong 
               foundation in software engineering principles.
             </Typography>
@@ -68,7 +68,7 @@ const About = () => {
             </Grid>
           </Box>
 
-          {/* Experience Section */}
+          {/* Experience Section
           <Box sx={{ mb: 6 }}>
             <Typography variant="h4" gutterBottom>
               Professional Experience
@@ -94,7 +94,7 @@ const About = () => {
                 </Box>
               ))}
             </Paper>
-          </Box>
+          </Box> */}
 
           {/* Education Section */}
           <Box>
@@ -168,34 +168,34 @@ const skills = [
   },
 ];
 
-const experience = [
-  {
-    title: 'Senior Software Engineer',
-    company: 'Company Name',
-    period: '2020 - Present',
-    responsibilities: [
-      'Led the development of a high-performance web application using React and Node.js',
-      'Implemented microservices architecture to improve scalability',
-      'Mentored junior developers and conducted code reviews',
-    ],
-  },
-  {
-    title: 'Software Developer',
-    company: 'Previous Company',
-    period: '2018 - 2020',
-    responsibilities: [
-      'Developed and maintained full-stack applications using modern technologies',
-      'Collaborated with cross-functional teams to deliver projects on time',
-      'Improved application performance by 40% through optimization',
-    ],
-  },
-];
+// const experience = [
+//   {
+//     title: 'Senior Software Engineer',
+//     company: 'Company Name',
+//     period: '2020 - Present',
+//     responsibilities: [
+//       'Led the development of a high-performance web application using React and Node.js',
+//       'Implemented microservices architecture to improve scalability',
+//       'Mentored junior developers and conducted code reviews',
+//     ],
+//   },
+//   {
+//     title: 'Software Developer',
+//     company: 'Previous Company',
+//     period: '2018 - 2020',
+//     responsibilities: [
+//       'Developed and maintained full-stack applications using modern technologies',
+//       'Collaborated with cross-functional teams to deliver projects on time',
+//       'Improved application performance by 40% through optimization',
+//     ],
+//   },
+// ];
 
 const education = [
   {
-    degree: 'Bachelor of Science in Computer Science',
-    school: 'University Name',
-    period: '2014 - 2018',
+    degree: 'Bachelor of Software Engineering',
+    school: 'Al-Hikmah University',
+    period: '2022 - 2026',
     description: 'Graduated with honors. Specialized in Software Engineering and Data Structures.',
   },
 ];

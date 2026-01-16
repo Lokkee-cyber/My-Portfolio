@@ -333,39 +333,23 @@ const Resume = () => {
 // Sample data - Replace with your actual information
 const experience = [
   {
-    title: 'Senior Software Engineer',
-    company: 'Tech Company Name',
-    period: '2020 - Present',
+    title: 'Junior Software Engineer',
+    company: 'Upwork',
+    period: '2024 - Present',
     achievements: [
-      'Led development of microservices architecture',
       'Improved system performance by 40%',
       'Mentored junior developers',
-    ]
-  },
-  {
-    title: 'Software Developer',
-    company: 'Previous Company Name',
-    period: '2018 - 2020',
-    achievements: [
-      'Developed full-stack web applications',
-      'Implemented CI/CD pipeline',
-      'Reduced bug count by 60%',
     ]
   }
 ];
 
 const education = [
-  {
-    degree: 'Master of Computer Science',
-    school: 'University Name',
-    period: '2016 - 2018',
-    description: 'Specialized in Software Engineering and Machine Learning'
-  },
+  
   {
     degree: 'Bachelor of Science in Computer Science',
-    school: 'University Name',
-    period: '2012 - 2016',
-    description: 'Graduated with honors'
+    school: 'Al-Hikmah Univerity',
+    period: '2023 - 2026',
+    description: 'Graduating with honors'
   }
 ];
 
@@ -380,7 +364,7 @@ const skills = [
   },
   {
     category: 'DevOps & Tools',
-    items: ['Docker', 'AWS', 'Git', 'CI/CD', 'Agile Methodologies']
+    items: ['Docker', 'AWS', 'Git', 'CI/CD']
   }
 ];
 
