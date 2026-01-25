@@ -115,22 +115,22 @@ const Resume = () => {
                     minHeight: '70px',
                   },
                   '.MuiTimelineOppositeContent-root': {
-                    flex: { xs: '0 1 85px', sm: 0.3 },
-                    padding: '6px 8px',
+                    flex: { xs: '0 1 100px', sm: 0.3 },
+                    padding: '4px 5px',
                   },
                   '.MuiTimelineSeparator-root': {
                     flex: '0 1 auto',
                   },
                   '.MuiTimelineContent-root': {
                     flex: { xs: '1 1 auto', sm: 0.7 },
-                    padding: '6px 16px',
+                    padding: '3px 10px',
                   },
                   '.MuiTimelineConnector-root': {
                     width: '2px',
                   },
                   '.MuiTimelineDot-root': {
-                    margin: '0 8px',
-                    padding: '4px',
+                    margin: '0 6px',
+                    padding: '2px',
                   }
                 }
               }}
@@ -166,7 +166,7 @@ const Resume = () => {
                   <Paper 
                     elevation={3} 
                     sx={{ 
-                      p: { xs: 2, sm: 3 }, 
+                      p: { xs: 1, sm: 3 }, 
                       mb: { xs: 2, sm: 3 },
                       background: 'linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%)',
                       borderLeft: '4px solid #1976d2',
