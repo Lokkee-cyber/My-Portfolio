@@ -55,8 +55,8 @@ const Resume = () => {
       sx={{ 
         width: '100%',
         minHeight: '100vh',
-        bgcolor: '#f0f8ff', // Light blue background
-        background: 'linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%)'
+        bgcolor: '#030c15', // Dark background
+        background: 'linear-gradient(155deg, #030c15 60%, #09063e 100%)'
       }}
     >
       <Container maxWidth="lg" sx={{ width: '100%' }}>

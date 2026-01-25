@@ -5,8 +5,7 @@ const About = () => {
   return (
     <Box
       sx={{
-        bgcolor: '#f0f8ff',
-        background: 'linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%)',
+        background: 'linear-gradient(155deg, #030c15 60%, #09063e 100%)',
         minHeight: '100vh',
         py: 4
       }}
@@ -18,7 +17,7 @@ const About = () => {
           transition={{ duration: 0.5 }}
         >
           {/* About Me Section */}
-          <Box sx={{ mb: 6 }}>
+          <Box sx={{ mb: 6, color: 'white' }}>
             <Typography variant="h3" component="h1" gutterBottom>
               About Me
             </Typography>
@@ -34,7 +33,7 @@ const About = () => {
           </Box>
 
           {/* Skills Section */}
-          <Box sx={{ mb: 6 }}>
+          <Box sx={{ mb: 6, color: 'white' }}>
             <Typography variant="h4" gutterBottom>
               Technical Skills
             </Typography>
@@ -97,7 +96,7 @@ const About = () => {
           </Box> */}
 
           {/* Education Section */}
-          <Box>
+          <Box sx={{ mb: 6, color: 'white' }}>
             <Typography variant="h4" gutterBottom>
               Education
             </Typography>

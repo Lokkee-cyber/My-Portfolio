@@ -22,7 +22,7 @@ const Projects = () => {
 
   useEffect(() => {
     // Replace 'yourusername' with your actual GitHub username
-    fetch('https://api.github.com/users/yourusername/repos')
+    fetch('https://api.github.com/users/Lokkee-cyber/repos')
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to fetch projects');
@@ -47,8 +47,8 @@ const Projects = () => {
       name: "Training Website",
       description: "A full-stack e-commerce platform built with React, Node.js, and MongoDB",
       topics: ["react", "nodejs", "mongodb"],
-      html_url: "#",
-      homepage: "#",
+      html_url: "https://github.com/Lokkee-cyber/New-Folder.git",
+      homepage: "https://new-folder-five-gamma.vercel.app/",
       stargazers_count: 45,
       language: "JavaScript"
     },
@@ -101,8 +101,7 @@ const Projects = () => {
       sx={{
         width: '100%',
         minHeight: '100vh',
-        bgcolor: '#f0f8ff',
-        background: 'linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%)',
+        background: 'linear-gradient(155deg, #030c15 60%, #09063e 100%)'
       }}
     >
       <Container maxWidth="lg" sx={{ width: '100%' }}>

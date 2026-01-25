@@ -131,8 +131,7 @@ const Contact = () => {
   return (
     <Box
       sx={{
-        bgcolor: '#f0f8ff',
-        background: 'linear-gradient(135deg, #f0f8ff 0%, #ffffff 100%)',
+        background: 'linear-gradient(155deg, #030c15 60%, #09063e 100%)',
         minHeight: '100vh',
         py: 4
       }}
@@ -147,19 +146,20 @@ const Contact = () => {
             <Typography variant="h3" component="h1" gutterBottom sx={{ color: '#1976d2', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(25, 118, 210, 0.1)' }}>
               Get In Touch
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary">
+            <Typography variant="subtitle1" color="white">
               I'm always open to new opportunities and interesting projects.
             </Typography>
           </Box>
-          <Grid container spacing={4}>
+          <Grid container spacing={8} >
             {/* Contact Information */}
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} sx={{ margin: 'auto' }}>
               <motion.div variants={itemVariants}>
-                <Box sx={{ mb: 4 }}>
+                <Box sx={{ mb: 4, display: { md: 'flex' }, flexDirection: 'row', gap: 4 }}>
                   {contactInfo.map((info, index) => (
                     <Card
                       key={info.title}
                       sx={{
+                        p: 4,
                         mb: 2,
                         background: 'linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%)',
                         border: '1px solid rgba(25, 118, 210, 0.1)',
@@ -171,7 +171,9 @@ const Contact = () => {
                         },
                       }}
                     >
-                      <CardContent>
+                      <CardContent 
+                            component="a"
+                            href={info.link}>
                         <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
                           {info.icon}
                           <Typography variant="h6" sx={{ ml: 1, color: '#1976d2', fontWeight: 600 }}>
@@ -180,8 +182,7 @@ const Contact = () => {
                         </Box>
                         {info.link ? (
                           <Typography
-                            component="a"
-                            href={info.link}
+                            
                             sx={{
                               textDecoration: 'none',
                               color: 'text.secondary',

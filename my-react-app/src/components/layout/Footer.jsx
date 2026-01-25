@@ -15,12 +15,12 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        py: 3,
-        px: 2,
+        py: 1,
+        px: 1,
         mt: 'auto',
         backgroundColor: (theme) =>
           theme.palette.mode === 'light'
-            ? theme.palette.grey[200]
+            ? theme.palette.grey[700]
             : theme.palette.grey[800],
       }}
     >
@@ -32,7 +32,7 @@ const Footer = () => {
           alignItems="center"
         >
           <Typography variant="body2" color="text.secondary">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Lokkee Corp. All rights reserved.
           </Typography>
           
           <Stack direction="row" spacing={2}>

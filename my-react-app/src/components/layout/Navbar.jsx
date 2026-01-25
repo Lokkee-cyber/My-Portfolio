@@ -49,7 +49,7 @@ const Navbar = () => {
       elevation={3}
       sx={{
         color: '#ebf0f4ff',
-        bgcolor: '#1976d2',
+        bgcolor: '#030c15',
         boxShadow: '0 4px 24px 0 rgba(25, 118, 210, 0.08)',
         px: 0,
         py: 0.5,
@@ -105,7 +105,7 @@ const Navbar = () => {
                   component={Link}
                   to={item.path}
                   sx={{
-                    color: location.pathname === item.path ? '#06021a' : '#fcfcfd',
+                    color: location.pathname === item.path ? '#1976d2' : '#fcfcfd',
                     fontWeight: location.pathname === item.path ? 'bold' : 'normal',
                     background: 'none',
                     px: 2,
@@ -116,7 +116,7 @@ const Navbar = () => {
                     overflow: 'hidden',
                     transition: 'color 0.2s',
                     '&:hover': {
-                      color: '#040220',
+                      color: 'white',
                       background: 'rgba(25, 118, 210, 0.08)',
                     },
                     '&:after': {
@@ -128,7 +128,7 @@ const Navbar = () => {
                       bottom: 4,
                       height: 2,
                       borderRadius: 1,
-                      background: location.pathname === item.path ? '#05042b' : 'transparent',
+                      background: location.pathname === item.path ? '#1976d2' : 'transparent',
                       transition: 'background 0.3s',
                     },
                   }}

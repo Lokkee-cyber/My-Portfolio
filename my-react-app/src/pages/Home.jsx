@@ -32,7 +32,7 @@ const socialLinks = [
     icon: <GitHubIcon fontSize="large" />, link: 'https://github.com/Lokkee-cyber', label: 'GitHub', color: '#171515'
   },
   {
-    icon: <EmailIcon fontSize="large" />, link: 'mailto:ismailawaliyu@email.com', label: 'Email', color: '#1976d2'
+    icon: <EmailIcon fontSize="large" />, link: 'mailto:ismailawaliyu@gmail.com', label: 'Email', color: '#1976d2'
   },
 ];
 
@@ -43,18 +43,18 @@ const Home = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        bgcolor: '#030c15',
         fontFamily: 'Inter, Roboto, Arial, sans-serif',
         py: { xs: 4, md: 8 },
+        background: 'linear-gradient(155deg, #030c15 60%, #09063e 100%)'
       }}
     >
       <Container maxWidth="lg">
-          <Grid container spacing={0} sx={{  display: { xs: 'flex', md: 'flex' }, mb: 6 }}>
+          <Grid container spacing={3} sx={{  display: { xs: 'flex', md: 'flex' }, mb: 6 }}>
               <Grid item xs={12} md={5}>
                   <Box sx={{ position: 'relative',
                   display: 'flex',
-                             width: { xs: 150, md: 260 },
-                             height: { xs: 150, md: 260 },
+                             width: { xs: 150, md: 290 },
+                             height: { xs: 150, md: 290 },
                              m: { xs: 'auto', md: 4 },
                              p: "2px",
                              borderRadius: "50%",
@@ -74,10 +74,11 @@ const Home = () => {
                 fontWeight: 900,
                 color: '#1976d2',
                 textAlign: 'center',
-                ml: 2,
+                ml: 5,
+                mt: 2.5,
                 letterSpacing: 0.6,
                 lineHeight: 1.1,
-                fontSize: { xs: 26, sm: 48, md: 56 },
+                fontSize: { xs: 40, sm: 48, md: 56 },
               }}
             >
               Hi, I'm Lokkee
@@ -85,12 +86,12 @@ const Home = () => {
                   </Box>
           </Grid>
           {/* Text and actions on the right */}
-          <Grid item xs={12} md={7}>
+          <Grid item xs={12} md={9}>
             <Typography
               variant="h2"
               sx={{
                 display: { xs: 'none', md: 'flex' },
-                fontWeight: 400,
+                fontWeight: 900,
                 color: '#1976d2',
                 letterSpacing: 0.6,
                 lineHeight: 1.1,
@@ -101,13 +102,13 @@ const Home = () => {
             </Typography>
             <Typography
               variant="h5"
-              sx={{ color: '#333', mb: 3, fontWeight: 400, fontSize: { xs: 18, md: 24 } }}
+              sx={{ color: 'white', mb: 3, fontWeight: {xs: 600, md: 600}, fontSize: { xs: 20, md: 26 }, mt: { xs: 5, md: 4 } }}
             >
               Software Engineer & Full Stack Developer
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: '#444', mb: 4, fontSize: 18, maxWidth: 500 }}
+              sx={{ color: 'white', mb: 4, fontSize: { xs: 17, md: 17 }, maxWidth: 500 }}
             >
               I build beautiful, performant, and scalable web applications. Passionate about clean code, UI/UX, and solving real-world problems with technology.
             </Typography>
@@ -155,7 +156,10 @@ const Home = () => {
                 Contact Me
               </Button>
             </Stack>
-            <Stack direction="row" spacing={1} sx={{ mb: 2 }}>
+            
+          </Grid>
+          <Grid item xs={12} md={12} sx={{ mt: 2, display: {xs: 'none', md: 'flex'}, textAlign: 'center'}}>
+            <Stack direction="column" spacing={4} sx={{ mb: 2, ml: {md: 7 } }}>
               {socialLinks.map((item) => (
                 <IconButton
                   key={item.label}
@@ -184,12 +188,12 @@ const Home = () => {
         </Grid>
 
         {/* What I Do Section */}
-        <Box sx={{ py: 6 }}>
+        <Box sx={{ py: 4 }}>
           <Typography
             variant="h4"
             sx={{ mb: 4, textAlign: 'center', color: '#1976d2', fontWeight: 700, letterSpacing: 1 }}
           >
-            What I Do
+            What I Do?
           </Typography>
           <Grid container spacing={4} justifyContent="center">
             {skills.map((skill, index) => (
