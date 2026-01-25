@@ -1,5 +1,15 @@
 import { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, Drawer, List, ListItem, ListItemText, useTheme, useMediaQuery, Box } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Drawer,
+  useTheme,
+  useMediaQuery,
+  Box,
+} from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 
@@ -18,29 +28,67 @@ const Navbar = () => {
   ];
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+    setMobileOpen((prev) => !prev);
   };
 
+  /* =======================
+     MOBILE DRAWER (FIXED)
+     ======================= */
   const drawer = (
-    <List>
-      {menuItems.map((item) => (
-        <ListItem 
-          button 
-          component={Link} 
-          to={item.path} 
-          key={item.text}
-          selected={location.pathname === item.path}
-          onClick={handleDrawerToggle}
-        >
-          <ListItemText 
-            primary={item.text} 
+    <Box
+      sx={{
+        width: 260,
+        height: '100%',
+        background: 'rgba(3,12,21,0.7)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        px: 2,
+        pt: 3,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 1.5,
+      }}
+    >
+      {menuItems.map((item) => {
+        const isActive = location.pathname === item.path;
+
+        return (
+          <Button
+            key={item.text}
+            component={Link}
+            to={item.path}
+            onClick={handleDrawerToggle}
             sx={{
-              color: location.pathname === item.path ? 'primary.main' : 'inherit',
+              justifyContent: 'flex-start',
+              textTransform: 'none',
+              color: '#ebf0f4ff',
+              fontSize: '1rem',
+              px: 2,
+              py: 1.2,
+              borderRadius: 3,
+
+              // glass button
+              background: 'rgba(255,255,255,0.08)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255,255,255,0.15)',
+
+              '&:hover': {
+                background: 'rgba(255,255,255,0.15)',
+              },
+
+              ...(isActive && {
+                background: 'rgba(25,118,210,0.25)',
+                border: '1px solid rgba(25,118,210,0.5)',
+                fontWeight: 'bold',
+              }),
             }}
-          />
-        </ListItem>
-      ))}
-    </List>
+          >
+            {item.text}
+          </Button>
+        );
+      })}
+    </Box>
   );
 
   return (
@@ -50,14 +98,13 @@ const Navbar = () => {
       sx={{
         color: '#ebf0f4ff',
         bgcolor: '#030c15',
-        boxShadow: '0 4px 24px 0 rgba(25, 118, 210, 0.08)',
-        px: 0,
+        boxShadow: '0 4px 24px rgba(25, 118, 210, 0.08)',
         py: 0.5,
       }}
     >
       <Toolbar sx={{ px: { xs: 2, sm: 4 }, minHeight: 64 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          
+        {/* Logo */}
+        <Box sx={{ flexGrow: 1 }}>
           <Typography
             variant="h6"
             component={Link}
@@ -68,89 +115,60 @@ const Navbar = () => {
               fontWeight: 'bold',
               fontSize: { xs: '1.2rem', sm: '1.5rem' },
               letterSpacing: 1,
-              '&:hover': {
-                color: '#e6e8eaff',
-              },
-              transition: 'color 0.2s',
+              '&:hover': { color: '#e6e8eaff' },
             }}
           >
-             Lokkee Corp.
-             
+            Lokkee Corp.
           </Typography>
         </Box>
 
+        {/* Mobile */}
         {isMobile ? (
           <>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-            >
+            <IconButton color="inherit" onClick={handleDrawerToggle}>
               <MenuIcon />
             </IconButton>
+
             <Drawer
               anchor="left"
               open={mobileOpen}
               onClose={handleDrawerToggle}
+              PaperProps={{
+                sx: {
+                  borderTopRightRadius: 24,
+                  borderBottomRightRadius: 24,
+                  overflow: 'hidden',
+                },
+              }}
             >
               {drawer}
             </Drawer>
           </>
         ) : (
-          <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', position: 'relative' }}>
+          /* Desktop menu (unchanged) */
+          <Box sx={{ display: 'flex', gap: 2 }}>
             {menuItems.map((item) => (
-              <Box key={item.text} sx={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Button
-                  component={Link}
-                  to={item.path}
-                  sx={{
-                    color: location.pathname === item.path ? '#1976d2' : '#fcfcfd',
-                    fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                    background: 'none',
-                    px: 2,
-                    py: 1,
-                    borderRadius: 2,
-                    fontSize: '1rem',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'color 0.2s',
-                    '&:hover': {
-                      color: 'white',
-                      background: 'rgba(25, 118, 210, 0.08)',
-                    },
-                    '&:after': {
-                      content: '""',
-                      display: 'block',
-                      position: 'absolute',
-                      left: 16,
-                      right: 16,
-                      bottom: 4,
-                      height: 2,
-                      borderRadius: 1,
-                      background: location.pathname === item.path ? '#1976d2' : 'transparent',
-                      transition: 'background 0.3s',
-                    },
-                  }}
-                >
-                  {item.text}
-                </Button>
-                {/* Animated active indicator */}
-                {location.pathname === item.path && (
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      left: 16,
-                      right: 16,
-                      bottom: 2,
-                      height: 3,
-                      borderRadius: 2,
-                      background: 'linear-gradient(90deg, #1976d2 0%, #42a5f5 100%)',
-                      transition: 'all 0.3s',
-                    }}
-                  />
-                )}
-              </Box>
+              <Button
+                key={item.text}
+                component={Link}
+                to={item.path}
+                sx={{
+                  color:
+                    location.pathname === item.path
+                      ? '#1976d2'
+                      : '#fcfcfd',
+                  fontWeight:
+                    location.pathname === item.path ? 'bold' : 'normal',
+                  px: 2,
+                  py: 1,
+                  borderRadius: 2,
+                  '&:hover': {
+                    background: 'rgba(25, 118, 210, 0.08)',
+                  },
+                }}
+              >
+                {item.text}
+              </Button>
             ))}
           </Box>
         )}
