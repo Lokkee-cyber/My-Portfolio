@@ -116,14 +116,14 @@ const Resume = () => {
                   },
                   '.MuiTimelineOppositeContent-root': {
                     flex: { xs: '0 1 100px', sm: 0.3 },
-                    padding: '4px 5px',
+                    padding: '2px 2px',
                   },
                   '.MuiTimelineSeparator-root': {
                     flex: '0 1 auto',
                   },
                   '.MuiTimelineContent-root': {
                     flex: { xs: '1 1 auto', sm: 0.7 },
-                    padding: '3px 10px',
+                    padding: '2px 5px',
                   },
                   '.MuiTimelineConnector-root': {
                     width: '2px',
@@ -164,9 +164,9 @@ const Resume = () => {
                 </TimelineSeparator>
                 <TimelineContent>
                   <Paper 
-                    elevation={3} 
+                    elevation={1} 
                     sx={{ 
-                      p: { xs: 1, sm: 3 }, 
+                      p: { xs: 0.5, sm: 3 }, 
                       mb: { xs: 2, sm: 3 },
                       background: 'linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%)',
                       borderLeft: '4px solid #1976d2',
