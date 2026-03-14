@@ -1,8 +1,12 @@
-import { Box } from '@mui/material';
+import { Box, useMediaQuery, useTheme } from '@mui/material';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import BottomNav from './BottomNav';
 
 const Layout = ({ children }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <Box
       sx={{
@@ -25,6 +29,7 @@ const Layout = ({ children }) => {
           alignItems: 'stretch',
           py: 0,
           px: 0,
+          pb: { xs: 9, sm: 0 },
           '& > *': {
             width: '100%',
             maxWidth: '100%',
@@ -38,6 +43,7 @@ const Layout = ({ children }) => {
         {children}
       </Box>
       <Footer />
+      {isMobile && <BottomNav />}
     </Box>
   );
 };
