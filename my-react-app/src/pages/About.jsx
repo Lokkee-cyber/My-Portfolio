@@ -1,117 +1,149 @@
-import { Container, Typography, Grid, Paper, Box, LinearProgress, Chip } from '@mui/material';
+import { Container, Typography, Grid, Paper, Box, Chip, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 
 const About = () => {
   return (
     <Box
       sx={{
-        background: 'linear-gradient(155deg, #030c15 60%, #09063e 100%)',
+        background: 'linear-gradient(180deg, #02080f 0%, #071d43 40%, #09173f 100%)',
         minHeight: '100vh',
-        py: 4
+        py: { xs: 4, md: 10 },
       }}
     >
-      <Container>
+      <Container maxWidth="lg">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          {/* About Me Section */}
-          <Box sx={{ mb: 6, color: 'white' }}>
-            <Typography variant="h3" component="h1" gutterBottom>
+          <Box sx={{ mb: 8, color: '#e2e8f0' }}>
+            <Typography
+              variant="h3"
+              component="h1"
+              gutterBottom
+              sx={{ fontWeight: 800, color: '#ffffff', letterSpacing: '-0.03em' }}
+            >
               About Me
             </Typography>
-            <Typography variant="body1" paragraph>
-              Hello! I'm Ismaila Waliyu, a passionate software engineer with a strong foundation in full-stack development. 
-              I specialize in creating efficient, scalable, and user-friendly applications that solve real-world problems.
+            <Typography variant="body1" paragraph sx={{ fontSize: '1.05rem', maxWidth: 760, lineHeight: 1.9 }}>
+              I’m Ismaila Waliyu, a full-stack software engineer who turns complex problems into thoughtful web products. I combine strong backend architecture with polished frontend experiences so every app is fast, scalable, and easy to use.
             </Typography>
-            <Typography variant="body1" paragraph>
-              With 3 years of experience in the software industry, I've worked on various projects ranging from web applications 
-              to enterprise solutions. I'm constantly learning and adapting to new technologies while maintaining a strong 
-              foundation in software engineering principles.
+            <Typography variant="body1" paragraph sx={{ fontSize: '1.05rem', maxWidth: 760, lineHeight: 1.9 }}>
+              My background includes full-stack web applications, API development, and data-driven dashboards. I enjoy working across the stack, improving developer workflows, and building products that people love.
             </Typography>
           </Box>
 
-          {/* Skills Section */}
-          <Box sx={{ mb: 6, color: 'white' }}>
-            <Typography variant="h4" gutterBottom>
-              Technical Skills
+          <Grid container spacing={{ xs: 2, md: 4 }}>
+            <Grid item xs={12} md={6}>
+              <Paper
+                elevation={2}
+                sx={{
+                  p: { xs: 3, md: 4 },
+                  background: 'rgba(13, 27, 56, 0.92)',
+                  border: '1px solid rgba(96, 165, 250, 0.15)',
+                  borderRadius: 3,
+                }}
+              >
+                <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, color: '#ffffff', fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
+                  Experience & Impact
+                </Typography>
+                <Stack spacing={2}>
+                  {highlights.map((item) => (
+                    <Paper
+                      key={item.label}
+                      elevation={0}
+                      sx={{
+                        p: { xs: 2, md: 3 },
+                        background: 'rgba(255,255,255,0.04)',
+                        borderRadius: 2,
+                        border: '1px solid rgba(255,255,255,0.08)',
+                      }}
+                    >
+                      <Typography variant="h6" sx={{ color: '#ffffff', fontWeight: 700, fontSize: { xs: '1.1rem', md: '1.3rem' } }}>
+                        {item.value}
+                      </Typography>
+                      <Typography sx={{ color: '#94a3b8', mt: 1, fontSize: { xs: '0.85rem', md: '1rem' } }}>{item.label}</Typography>
+                    </Paper>
+                  ))}
+                </Stack>
+              </Paper>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Paper
+                elevation={2}
+                sx={{
+                  p: { xs: 3, md: 4 },
+                  background: 'rgba(255,255,255,0.04)',
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  borderRadius: 3,
+                }}
+              >
+                <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, color: '#ffffff', fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
+                  Why I Build
+                </Typography>
+                <Typography sx={{ color: '#cbd5e1', lineHeight: 1.8, fontSize: { xs: '0.95rem', md: '1rem' } }}>
+                  I believe strong software should feel effortless. I focus on clarity in both design and architecture, so applications perform beautifully across devices and are easy to maintain.
+                </Typography>
+              </Paper>
+            </Grid>
+          </Grid>
+
+          <Box sx={{ mt: { xs: 6, md: 8 } }}>
+            <Typography variant="h4" sx={{ mb: { xs: 3, md: 4 }, color: '#93c5fd', fontWeight: 700, fontSize: { xs: '1.7rem', md: '2rem' } }}>
+              Core Skills
             </Typography>
-            <Grid container spacing={3}>
-              {skills.map((category) => (
-                <Grid item xs={12} md={6} key={category.name}>
-                  <Paper 
-                    elevation={2}
-                    sx={{ 
-                      p: 3,
-                      height: '100%',
-                      '&:hover': { transform: 'translateY(-5px)', transition: 'transform 0.3s' }
+            <Grid container spacing={{ xs: 2, md: 3 }}>
+              {skills.map((skill) => (
+                <Grid item xs={12} sm={6} md={3} key={skill.name}>
+                  <Paper
+                    elevation={1}
+                    sx={{
+                      p: { xs: 2, md: 3 },
+                      minHeight: { xs: 150, md: 170 },
+                      borderRadius: 3,
+                      background: 'rgba(255,255,255,0.05)',
+                      border: '1px solid rgba(255,255,255,0.08)',
                     }}
                   >
-                    <Typography variant="h6" gutterBottom>
-                      {category.name}
+                    <Typography variant="h6" sx={{ mb: 2, color: '#ffffff', fontWeight: 700, fontSize: { xs: '1rem', md: '1.1rem' } }}>
+                      {skill.name}
                     </Typography>
-                    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, mb: 2 }}>
-                      {category.items.map((skill) => (
+                    <Stack spacing={1}>
+                      {skill.items.map((item) => (
                         <Chip
-                          key={skill.name}
-                          label={skill.name}
+                          key={item}
+                          label={item}
                           variant="outlined"
-                          color="primary"
+                          sx={{
+                            borderColor: 'rgba(96, 165, 250, 0.35)',
+                            color: '#cbd5e1',
+                            fontSize: '0.85rem',
+                          }}
                         />
                       ))}
-                    </Box>
+                    </Stack>
                   </Paper>
                 </Grid>
               ))}
             </Grid>
           </Box>
 
-          {/* Experience Section
-          <Box sx={{ mb: 6 }}>
-            <Typography variant="h4" gutterBottom>
-              Professional Experience
-            </Typography>
-            <Paper elevation={2} sx={{ p: 3 }}>
-              {experience.map((job, index) => (
-                <Box key={job.title} sx={{ mb: index !== experience.length - 1 ? 4 : 0 }}>
-                  <Typography variant="h6" gutterBottom>
-                    {job.title}
-                  </Typography>
-                  <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                    {job.company} | {job.period}
-                  </Typography>
-                  <ul style={{ paddingLeft: '20px' }}>
-                    {job.responsibilities.map((responsibility, idx) => (
-                      <li key={idx}>
-                        <Typography variant="body1" paragraph>
-                          {responsibility}
-                        </Typography>
-                      </li>
-                    ))}
-                  </ul>
-                </Box>
-              ))}
-            </Paper>
-          </Box> */}
-
-          {/* Education Section */}
-          <Box sx={{ mb: 6, color: 'white' }}>
-            <Typography variant="h4" gutterBottom>
+          <Box sx={{ mt: { xs: 6, md: 8 } }}>
+            <Typography variant="h4" sx={{ mb: { xs: 3, md: 4 }, color: '#93c5fd', fontWeight: 700, fontSize: { xs: '1.7rem', md: '2rem' } }}>
               Education
             </Typography>
-            <Paper elevation={2} sx={{ p: 3 }}>
-              {education.map((edu, index) => (
-                <Box key={edu.degree} sx={{ mb: index !== education.length - 1 ? 4 : 0 }}>
-                  <Typography variant="h6" gutterBottom>
+            <Paper
+              elevation={2}
+              sx={{ p: { xs: 3, md: 4 }, borderRadius: 3, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.08)' }}
+            >
+              {education.map((edu) => (
+                <Box key={edu.degree} sx={{ mb: 3 }}>
+                  <Typography variant="h5" sx={{ fontWeight: 700, color: '#ffffff', fontSize: { xs: '1.1rem', md: '1.3rem' } }}>
                     {edu.degree}
                   </Typography>
-                  <Typography variant="subtitle1" color="text.secondary" gutterBottom>
-                    {edu.school} | {edu.period}
-                  </Typography>
-                  <Typography variant="body1">
-                    {edu.description}
-                  </Typography>
+                  <Typography sx={{ color: '#94a3b8', mt: 1, fontSize: { xs: '0.85rem', md: '0.95rem' } }}>{edu.school} · {edu.period}</Typography>
+                  <Typography sx={{ color: '#cbd5e1', mt: 2, fontSize: { xs: '0.9rem', md: '1rem' } }}>{edu.description}</Typography>
                 </Box>
               ))}
             </Paper>
@@ -120,84 +152,42 @@ const About = () => {
       </Container>
     </Box>
   );
-};  
+};
 
-
-// Data
-const skills = [
-  {
-    name: 'Frontend Development',
-    items: [
-      { name: 'React' },
-      { name: 'JavaScript' },
-      { name: 'TypeScript' },
-      { name: 'HTML5' },
-      { name: 'CSS3' },
-      { name: 'Material-UI' },
-    ],
-  },
-  {
-    name: 'Backend Development',
-    items: [
-      { name: 'Node.js' },
-      { name: 'Express' },
-      { name: 'Python' },
-      { name: 'Django' },
-      { name: 'RESTful APIs' },
-    ],
-  },
-  {
-    name: 'Database & Tools',
-    items: [
-      { name: 'MongoDB' },
-      { name: 'PostgreSQL' },
-      { name: 'Git' },
-      { name: 'Docker' },
-      { name: 'AWS' },
-    ],
-  },
-  {
-    name: 'Other Skills',
-    items: [
-      { name: 'Agile' },
-      { name: 'CI/CD' },
-      { name: 'Testing' },
-      { name: 'Problem Solving' },
-    ],
-  },
+const highlights = [
+  { label: 'Years of development experience', value: '3+' },
+  { label: 'Projects delivered', value: '15+' },
+  { label: 'Industry focus', value: 'Fintech, SaaS, eCommerce' },
 ];
 
-// const experience = [
-//   {
-//     title: 'Senior Software Engineer',
-//     company: 'Company Name',
-//     period: '2020 - Present',
-//     responsibilities: [
-//       'Led the development of a high-performance web application using React and Node.js',
-//       'Implemented microservices architecture to improve scalability',
-//       'Mentored junior developers and conducted code reviews',
-//     ],
-//   },
-//   {
-//     title: 'Software Developer',
-//     company: 'Previous Company',
-//     period: '2018 - 2020',
-//     responsibilities: [
-//       'Developed and maintained full-stack applications using modern technologies',
-//       'Collaborated with cross-functional teams to deliver projects on time',
-//       'Improved application performance by 40% through optimization',
-//     ],
-//   },
-// ];
+const skills = [
+  {
+    name: 'Frontend',
+    items: ['React', 'JavaScript', 'TypeScript', 'Material UI'],
+  },
+  {
+    name: 'Backend',
+    items: ['Node.js', 'Express', 'REST APIs', 'Authentication'],
+  },
+  {
+    name: 'Database',
+    items: ['MongoDB', 'PostgreSQL', 'Firebase'],
+  },
+  {
+    name: 'Tools',
+    items: ['Git', 'Docker', 'CI/CD', 'Testing'],
+  },
+];
 
 const education = [
   {
     degree: 'Bachelor of Software Engineering',
     school: 'Al-Hikmah University',
     period: '2022 - 2026',
-    description: 'Graduated with honors. Specialized in Software Engineering and Data Structures.',
+    description: 'Graduated with honors, focusing on software design, data structures, and full-stack development.',
   },
 ];
 
-
 export default About;
+
+

@@ -1,5 +1,5 @@
 import { Box, Container, Typography, IconButton, Stack } from '@mui/material';
-import { GitHub, LinkedIn, Twitter, Email } from '@mui/icons-material';
+import { GitHub, LinkedIn, Email } from '@mui/icons-material';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,22 +7,16 @@ const Footer = () => {
   const socialLinks = [
     { icon: GitHub, url: 'https://github.com/Lokkee-cyber', label: 'GitHub' },
     { icon: LinkedIn, url: 'https://www.linkedin.com/in/waliyu-ismaila-945593399', label: 'LinkedIn' },
-    { icon: Twitter, url: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: Email, url: 'mailto:ismailawaliyu@email.com', label: 'Email' },
+    { icon: Email, url: 'mailto:ismailawaliyu@gmail.com', label: 'Email' },
   ];
 
   return (
     <Box
       component="footer"
       sx={{
-        py: 1,
-        px: 1,
-        mt: 'auto',
-        mb: { xs: 9, sm: 0 },
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[700]
-            : theme.palette.grey[800],
+        py: 3,
+        background: 'linear-gradient(180deg, rgba(3, 12, 21, 0.95), rgba(8, 20, 45, 0.95))',
+        borderTop: '1px solid rgba(255,255,255,0.08)',
       }}
     >
       <Container maxWidth="lg">
@@ -33,10 +27,9 @@ const Footer = () => {
           alignItems="center"
         >
           <Typography variant="body2" color="text.secondary">
-            © {currentYear} Lokkee Corp. All rights reserved.
+            © {currentYear} Ismaila Waliyu. Crafted for modern digital products.
           </Typography>
-          
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={1}>
             {socialLinks.map(({ icon: Icon, url, label }) => (
               <IconButton
                 key={label}
@@ -44,8 +37,10 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                color="inherit"
-                sx={{ '&:hover': { color: 'primary.main' } }}
+                sx={{
+                  color: '#8aa7ff',
+                  '&:hover': { color: '#ffffff' },
+                }}
               >
                 <Icon />
               </IconButton>

@@ -10,7 +10,7 @@ import {
   useMediaQuery,
   Box,
 } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
+import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -31,24 +31,30 @@ const Navbar = () => {
     setMobileOpen((prev) => !prev);
   };
 
-  /* =======================
-     MOBILE DRAWER (FIXED)
-     ======================= */
   const drawer = (
     <Box
       sx={{
-        width: 260,
+        width: 280,
         height: '100%',
-        background: 'rgba(3,12,21,0.7)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        px: 2,
+        background: 'linear-gradient(180deg, rgba(2,7,15,0.98) 0%, rgba(4,12,28,0.96) 100%)',
+        backdropFilter: 'blur(24px)',
+        WebkitBackdropFilter: 'blur(24px)',
+        px: 3,
         pt: 3,
+        pb: 4,
         display: 'flex',
         flexDirection: 'column',
-        gap: 1.5,
+        gap: 1,
       }}
     >
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+        <IconButton
+          onClick={handleDrawerToggle}
+          sx={{ color: '#cbd5e1' }}
+        >
+          <CloseIcon />
+        </IconButton>
+      </Box>
       {menuItems.map((item) => {
         const isActive = location.pathname === item.path;
 
@@ -61,27 +67,20 @@ const Navbar = () => {
             sx={{
               justifyContent: 'flex-start',
               textTransform: 'none',
-              color: '#ebf0f4ff',
-              fontSize: '1rem',
-              px: 2,
-              py: 1.2,
+              color: isActive ? '#60a5fa' : '#cbd5e1',
+              fontSize: '1.05rem',
+              px: 3,
+              py: 1.6,
               borderRadius: 3,
-
-              // glass button
-              background: 'rgba(255,255,255,0.08)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255,255,255,0.15)',
-
+              background: isActive ? 'rgba(96, 165, 250, 0.12)' : 'rgba(255,255,255,0.03)',
+              border: isActive ? '1px solid rgba(96, 165, 250, 0.3)' : '1px solid rgba(255,255,255,0.08)',
               '&:hover': {
-                background: 'rgba(255,255,255,0.15)',
+                background: isActive ? 'rgba(96, 165, 250, 0.15)' : 'rgba(96, 165, 250, 0.08)',
+                borderColor: 'rgba(96, 165, 250, 0.25)',
+                color: '#60a5fa',
               },
-
-              ...(isActive && {
-                background: 'rgba(25,118,210,0.25)',
-                border: '1px solid rgba(25,118,210,0.5)',
-                fontWeight: 'bold',
-              }),
+              fontWeight: isActive ? 700 : 600,
+              transition: 'all 0.2s ease',
             }}
           >
             {item.text}
@@ -94,16 +93,16 @@ const Navbar = () => {
   return (
     <AppBar
       position="sticky"
-      elevation={3}
+      elevation={0}
       sx={{
-        color: '#ebf0f4ff',
-        bgcolor: '#030c15',
-        boxShadow: '0 4px 24px rgba(25, 118, 210, 0.08)',
-        py: 0.5,
+        background: 'linear-gradient(180deg, rgba(2,7,15,0.92) 0%, rgba(3,12,25,0.88) 100%)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(96, 165, 250, 0.08)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
       }}
     >
-      <Toolbar sx={{ px: { xs: 2, sm: 4 }, minHeight: 64 }}>
-        {/* Logo */}
+      <Toolbar sx={{ px: { xs: 1.5, sm: 4 }, minHeight: { xs: 64, sm: 76 }, display: 'flex', justifyContent: 'space-between' }}>
         <Box sx={{ flexGrow: 1 }}>
           <Typography
             variant="h6"
@@ -111,68 +110,99 @@ const Navbar = () => {
             to="/"
             sx={{
               textDecoration: 'none',
-              color: '#ebf0f4ff',
-              fontWeight: 'bold',
-              fontSize: { xs: '1.2rem', sm: '1.5rem' },
-              letterSpacing: 1,
-              '&:hover': { color: '#e6e8eaff' },
+              color: '#ffffff',
+              fontWeight: 800,
+              fontSize: { xs: '1rem', sm: '1.3rem' },
+              letterSpacing: '-0.02em',
+              background: 'linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                textShadow: '0 0 20px rgba(96, 165, 250, 0.3)',
+                WebkitTextFillColor: 'transparent',
+              },
             }}
           >
-            Lokkee Corp.
+            Waliyu Ismaila
           </Typography>
         </Box>
 
-        {/* Mobile */}
         {isMobile ? (
-          <>
-            <IconButton color="inherit" onClick={handleDrawerToggle}>
-              <MenuIcon />
-            </IconButton>
-
-            <Drawer
-              anchor="left"
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-              PaperProps={{
-                sx: {
-                  borderTopRightRadius: 24,
-                  borderBottomRightRadius: 24,
-                  overflow: 'hidden',
-                },
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </>
+          <IconButton
+            color="inherit"
+            onClick={handleDrawerToggle}
+            sx={{ color: '#cbd5e1' }}
+          >
+            <MenuIcon />
+          </IconButton>
         ) : (
-          /* Desktop menu (unchanged) */
-          <Box sx={{ display: 'flex', gap: 2 }}>
-            {menuItems.map((item) => (
-              <Button
-                key={item.text}
-                component={Link}
-                to={item.path}
-                sx={{
-                  color:
-                    location.pathname === item.path
-                      ? '#1976d2'
-                      : '#fcfcfd',
-                  fontWeight:
-                    location.pathname === item.path ? 'bold' : 'normal',
-                  px: 2,
-                  py: 1,
-                  borderRadius: 2,
-                  '&:hover': {
-                    background: 'rgba(25, 118, 210, 0.08)',
-                  },
-                }}
-              >
-                {item.text}
-              </Button>
-            ))}
+          <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
+            {menuItems.map((item) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <Button
+                  key={item.text}
+                  component={Link}
+                  to={item.path}
+                  sx={{
+                    color: isActive ? '#60a5fa' : '#cbd5e1',
+                    fontWeight: isActive ? 700 : 600,
+                    textTransform: 'none',
+                    px: 2.5,
+                    py: 1,
+                    borderRadius: 2.5,
+                    position: 'relative',
+                    fontSize: '0.95rem',
+                    transition: 'all 0.25s ease',
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: 0,
+                      left: '50%',
+                      width: isActive ? '70%' : '0%',
+                      height: '2px',
+                      background: 'linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%)',
+                      borderRadius: '2px',
+                      transform: 'translateX(-50%)',
+                      transition: 'width 0.3s ease',
+                    },
+                    '&:hover': {
+                      background: 'rgba(96, 165, 250, 0.08)',
+                      color: '#93c5fd',
+                      '&::after': {
+                        width: isActive ? '70%' : '50%',
+                      },
+                    },
+                  }}
+                >
+                  {item.text}
+                </Button>
+              );
+            })}
           </Box>
         )}
       </Toolbar>
+
+      <Drawer
+        anchor="left"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        PaperProps={{
+          sx: {
+            width: 280,
+            borderTopRightRadius: 20,
+            borderBottomRightRadius: 20,
+            overflow: 'hidden',
+            background: 'linear-gradient(180deg, rgba(2,7,15,0.98) 0%, rgba(4,12,28,0.96) 100%)',
+            backdropFilter: 'blur(24px)',
+            WebkitBackdropFilter: 'blur(24px)',
+            border: '1px solid rgba(96, 165, 250, 0.08)',
+          },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </AppBar>
   );
 };

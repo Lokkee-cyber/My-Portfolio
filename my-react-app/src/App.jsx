@@ -9,15 +9,35 @@ import Contact from './pages/Contact';
 
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#2196f3',
+      main: '#60a5fa',
     },
     secondary: {
-      main: '#f50057',
+      main: '#7c3aed',
+    },
+    background: {
+      default: '#030c15',
+      paper: '#06132e',
     },
   },
   typography: {
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: "'Inter', 'Poppins', sans-serif",
+    button: {
+      textTransform: 'none',
+    },
+  },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        disableElevation: true,
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: 999,
+        },
+      },
+    },
   },
 });
 
